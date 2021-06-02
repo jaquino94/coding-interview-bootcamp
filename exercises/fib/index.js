@@ -8,6 +8,23 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+//Let's solve using dynamic programming/memoization
+let cache = {};
+
+function fib(n) {
+    if (n == 0) {
+        return 0;
+    }
+    if (n <= 2) {
+        return 1;
+    }
+    if (cache[n]) {
+        return cache[n];
+    }
+
+    cache[n] = fib(n-2) + fib(n-1);
+
+    return cache[n];
+}
 
 module.exports = fib;
